@@ -12,5 +12,21 @@ export const api_marvel = {
         } catch (error) {
             
         }
+    },
+
+    find_personagem: async function (payload: Number) {
+        try {
+            return await axios.get(`${url}/v1/public/characters/${payload}?apikey=${key}`)
+        } catch (error) {
+            
+        }
+    },
+
+    find_series: async function (payload: Number) {
+        try {
+            return await axios.get(`${url}/v1/public/characters/${payload}/series?apikey=${key}`)
+        } catch (error) {
+            
+        }
     }
 }

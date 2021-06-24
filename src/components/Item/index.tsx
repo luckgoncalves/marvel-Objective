@@ -8,6 +8,8 @@ interface seriesProps {
 
 
 interface heroProps {
+    onClick: () => void;
+
     key?: number;
     name: string;
     series: {
@@ -23,19 +25,19 @@ interface heroProps {
     }
 }
 
-const Item: React.FC<heroProps> = ({thumbnail, name, series, events}) => {
-    // console.log(series.items)
+const Item: React.FC<heroProps> = ({thumbnail, name, series, events, onClick}) => {
+    
   return (
-      <Container>
+      <Container onClick={() => onClick()}>
           <div className="info" >
               <img src={thumbnail.path.concat(`.${thumbnail.extension}`)} alt={name} />
               <span>{name}</span>
           </div>
-          <div className="info">
-              <p>{series.items.slice(0,3).map(item => item.name).join(', ')}</p>
+          <div className="info info-series">
+              <p>{series.items.slice(0,2).map(item => item.name).join('\n')}</p>
           </div>
-          <div className="info">
-              <p>{events.items.slice(0,3).map(item => item.name).join(', ')}</p>
+          <div className="info info-eventos">
+              <p>{events.items.slice(0,3).map(item => item.name).join('\n')}</p>
           </div>
       </Container>
   );

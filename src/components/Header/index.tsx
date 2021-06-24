@@ -1,18 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logoObjective from '../../assets/logo.svg'
 
 import { Container, Content } from './styles';
 
 const Header: React.FC = () => {
+  
   return (
       <Container>
           <Content>
-            <div>
+            <div className="logo" >
+              <Link to="/">
                 <img src={logoObjective} alt="Objective" />
+              </Link>
             </div>
-            <div>
-                <span> Lucas Gonçalves</span>
-                <span> Teste de Front-end</span>
+            <div className="user">
+                <span className="name"> Lucas Gonçalves</span>
+                <span className="description"> Teste de Front-end</span>
             </div>
           </Content>
       </Container>

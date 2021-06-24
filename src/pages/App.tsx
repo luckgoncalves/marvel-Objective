@@ -1,14 +1,10 @@
-import Header from '../components/Header';
-import Home from './Home';
 
 import '../styles/global.css';
+import Routes from '../routes';
 
 function App() {
   return (
-    <>
-      <Header />
-      <Home />
-    </>
+    <Routes />
   );
 }
 

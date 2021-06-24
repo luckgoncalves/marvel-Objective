@@ -12,6 +12,43 @@ export const Body = styled.div`
 
   padding-top: 40px;
   height: 100%;
+  margin-bottom: 24px;
+  
+  .header{
+    width: 100%;
+    margin-bottom: 24px;
+
+    h1 {
+      color: #555555;
+      font-style: 32px;
+      font-weight: bold;
+
+      margin-bottom: 16px;
+    }
+    
+    .search{ 
+      label {
+        font-weight: bold;
+        font-style: 16px;
+        color: #555555;
+      }
+    }
+  }
+
+  @media(max-width: 500px) {
+    .header {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+
+      .search {
+        margin-top: 24px;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
 
 `;
 
@@ -28,5 +65,13 @@ export const ListHeader = styled.div`
     font-size: 12px;
     width: 310px;
     letter-spacing: 0px;
+    
+    font-weight: 400;
+  }
+
+  @media(max-width: 500px) {
+    .info-header-series, .info-header-eventos{ 
+      display: none;
+    }
   }
 `;
