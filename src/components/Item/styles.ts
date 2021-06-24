@@ -10,7 +10,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    background-color: #FFF;
+    background-color: var(--white);
     
     height: 88px;
     width: 100%;
@@ -18,7 +18,7 @@ export const Container = styled.div`
     margin-top: 8px;
     
     border-radius: 4px;
-    box-shadow: 0px 0px 5px #00000033;
+    box-shadow: 0px 0px 5px var(--gray);
     &:hover{
         box-shadow: 0px 0px 5px #000000bd;
     }
@@ -34,7 +34,7 @@ export const Container = styled.div`
 
         display: flex;
         align-items: center;
-        color: #555555;
+        color: var(--dark-smoke);
 
         img {
             margin-right: 24px;
@@ -68,6 +68,7 @@ export const Container = styled.div`
             white-space: nowrap;
             overflow: hidden;
             display: inline-block;
+            
             text-overflow: ellipsis;
             margin: 0;
         }

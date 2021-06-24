@@ -13,10 +13,8 @@ export const Container = styled.div<containerProps>`
     background-repeat: no-repeat;
     background-size: cover;
 
-
     min-height: 90vh;
     
-
     .bg-color {
         width: 1366px;
         max-width: 100%;
@@ -52,7 +50,7 @@ export const Container = styled.div<containerProps>`
     }
 
     .image-personagem {
-        border: 1px solid #fff;
+        border: 1px solid var(--white);
         width: 400px;
     }
 `;
@@ -60,7 +58,7 @@ export const Container = styled.div<containerProps>`
 export const Biografy = styled.div`
     width: 20rem;
     max-width: 100%;
-    color: #fff;
+    color: var(--white);
     
     h1 {
         margin-bottom: 24px;
@@ -72,7 +70,7 @@ export const Biografy = styled.div`
 `;
 
 export const Comics = styled.div`
-    color: #fff;
+    color: var(--white);
     margin-top: 40px;
     max-height: 100vh;
 `;
@@ -93,18 +91,18 @@ export const ListComics = styled.div`
 
     /* Track */
     &::-webkit-scrollbar-track {
-     background: transparent;
+        background: transparent;
     }
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-        background: #888;
+        background: var(--gray);
         border-radius: 10px;
     }
 
     /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
-        background: #555;
+        background: var(--dark-smoke);
     }
 `;
 
@@ -115,8 +113,8 @@ export const Comic = styled.div`
     border-radius: 4px;
 
     background-color: #0000006e;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid var(--white);
+    color: var(--white);
 
     margin-right: 16px;
 

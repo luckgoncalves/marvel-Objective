@@ -10,19 +10,19 @@ export const Container = styled.div`
 
 export const AllPrevious = styled(FiChevronsLeft)`
     margin-right: 8px;
-    color: #8E8E8E;
+    color: var(--smoke);
     cursor: pointer;
 `;
 
 export const Previous = styled(FiChevronLeft)`
     cursor: pointer;
-    color: #8E8E8E;
+    color: var(--smoke);
     margin-right: 8px;
 `;
 
 export const AllNext = styled(FiChevronsRight)`
     cursor: pointer;
-    color: #8E8E8E;
+    color: var(--smoke);
     margin-left: 8px;
 `;
 
@@ -32,7 +32,7 @@ interface nextProps {
 }
 
 export const Next = styled(FiChevronRight)<nextProps>`
-    color: #8E8E8E;
+    color: var(--smoke);
     cursor: pointer;
 `;
 
@@ -45,7 +45,7 @@ export const NumberPage = styled.button<numberPageProps>`
     height: 32px;
     cursor: pointer;
 
-    background: #F5F5F5;
+    background: var(--snow);
     border: 1px solid transparent;
     border-radius: 4px;
 
@@ -56,13 +56,13 @@ export const NumberPage = styled.button<numberPageProps>`
     justify-content: center;
 
     &:hover {
-        background-color: #5DAFFF;
-        color: #FFF;
+        background-color: var(--ligth-blue);
+        color: var(--white);
     }
 
     ${props => props.active && css`
-        background: #167ABC;
-        color: #fff;
-        border: 1px solid #167ABC;
+        background: var(--dark-blue);
+        color: var(--white);
+        border: 1px solid var(--dark-blue);
     `}
 `;

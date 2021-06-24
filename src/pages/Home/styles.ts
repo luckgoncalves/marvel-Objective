@@ -8,7 +8,7 @@ export const Body = styled.div`
   padding-left: 20px;
   padding-right: 20px;
 
-  background-color: #E5E5E5;
+  background-color: var(--dark-snow);
 
   padding-top: 40px;
   height: 100%;
@@ -19,7 +19,7 @@ export const Body = styled.div`
     margin-bottom: 24px;
 
     h1 {
-      color: #555555;
+      color: var(--dark-smoke);
       font-style: 32px;
       font-weight: bold;
 
@@ -34,7 +34,7 @@ export const Body = styled.div`
       label {
         font-weight: bold;
         font-style: 16px;
-        color: #555555;
+        color: var(--dark-smoke);
       }
     }
   }
@@ -62,7 +62,7 @@ export const ListHeader = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  color: #555555;
+  color: var(--dark-smoke);
   
   .info-header {
     padding: 8px 24px 0px;

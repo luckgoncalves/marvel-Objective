@@ -1,6 +1,20 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'PT Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PT Sans", sans-serif;
+}
+
+:root {
+  --dark-snow: #e5e5e5;
+  --snow: #F5F5F5;;
+
+  --smoke: #8e8e8e;
+  --dark-smoke: #555555;
+
+  --dark-blue: #167ABC;
+  --ligth-blue: #5DAFFF;
+  
+  --gray: #00000033;
+  --white: #FFFFFF;
 }

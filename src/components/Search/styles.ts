@@ -19,9 +19,7 @@ export const Container = styled.div`
     
     @media(min-width: 500px) {
       width: fit-content;
-
     }
-
   }
 
 
@@ -34,10 +32,10 @@ export const Container = styled.div`
     font-style: italic;
     font-size: 14px;
 
-    color: #8E8E8E;
+    color: var(--smoke);
 
-    background-color: #FFFFFF;
-    border: 1px solid #E5E5E5;
+    background-color: var(--white);
+    border: 1px solid var(--dark-snow);
     border-radius: 4px;
 
     @media(max-width:500px) {

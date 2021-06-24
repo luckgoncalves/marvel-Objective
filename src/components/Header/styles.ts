@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 10vh;
-  background-color: #ffffff;
+  background-color: var(--white);
 
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@ export const Content = styled.div`
   height: 100%;
 
   .user {
-    color: #555555;
+    color: var(--dark-smoke);
     text-align: right;
     display: flex;
     align-items: center;
@@ -46,15 +46,15 @@ export const Content = styled.div`
       justify-content: center;
 
       margin-left: 16px;
-      background-color: #f5f5f5;
+      background-color: var(--snow);
       border-radius: 4px;
 
       font-weight: bold;
-      color: #555555;
+      color: var(--dark-smoke);
 
       &:hover {
-        background-color: #555555;
-        color: #f5f5f5;
+        background-color: var(--dark-smoke);
+        color: var(--snow);
       }
     }
 
