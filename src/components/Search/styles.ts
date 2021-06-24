@@ -5,6 +5,26 @@ export const Container = styled.div`
   margin-top: 8px;
   margin-bottom: 40px;
 
+
+  .input-icons svg {
+    position: absolute;
+    right: 0;
+    
+    top: 7px;
+    margin-right: 10px;
+  }
+
+  .input-icons {
+    position: relative;
+    
+    @media(min-width: 500px) {
+      width: fit-content;
+
+    }
+
+  }
+
+
   input {
     width: 295px;
     height: 32px;

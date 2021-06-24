@@ -23,8 +23,8 @@ const Header: React.FC = () => {
             </div>
             <div className="user">
                 <div>
-                  <span className="description"> Teste de Front-end</span>
                   <span className="name"> {username}</span>
+                  <span className="description"> Teste de Front-end</span>
                 </div>
 
                 <div className="sigla">

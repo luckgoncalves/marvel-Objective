@@ -24,6 +24,10 @@ export const Body = styled.div`
       font-weight: bold;
 
       margin-bottom: 16px;
+
+      @media(max-width: 500px) {
+        text-align: center;
+      }
     }
     
     .search{ 

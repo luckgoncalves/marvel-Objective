@@ -38,12 +38,15 @@ const Paginate: React.FC<paginateProps> = ({total, limit, pageNeighbours, curren
     }
 
     const renderPages = () => {
+        let widthScreen = window.innerWidth;
+        
+        let side = widthScreen > 500 ? 2 : 1;
 
         let items = []
-        let leftSide = currentPage -2;
-        if(leftSide <= 0) leftSide=0;
+        let leftSide = currentPage - side;
+        if(leftSide <= 0) leftSide = 0;
 
-        let rightSide = currentPage + 2;
+        let rightSide = currentPage + side;
         if(rightSide > pages -1) rightSide = pages -1;
         
         for(let number = leftSide; number <= rightSide; number++) {
