@@ -22,8 +22,7 @@ const Home: React.FC = () => {
 
     const [ total, setTotal ] = useState(0);
     const [ limit, setLimit ] = useState(0);
-    const [ page, setPage ] = useState(0);
-    const [ offset, setOffset] = useState(0)
+    const [ page, setPage ]   = useState(0);
 
     useEffect(() => {
         fetchPersonagems({offset: 0})
@@ -52,18 +51,13 @@ const Home: React.FC = () => {
 
         intervalRef.current = setTimeout(() => { fetchPersonagems({name: evt, offset: page * 10})}, 500)
 
-    }, [])
+    }, [page])
 
     const handlePagination = (page: number) => {
         setPage(page)
-        setOffset(page * 10)
 
-        // let allPages = Math.ceil(total / limit)
-
-        let newOffset = page >= total ? total - 1 : page + 10
-        // console.log(page)
-        // console.log(total)
-        fetchPersonagems({offset: newOffset})
+        let offset = page * 10
+        fetchPersonagems({offset: offset})
     }
 
     const navigatePersonsagem = (hero: any) => {
@@ -107,7 +101,7 @@ const Home: React.FC = () => {
         </Body>
 
         <Paginate 
-            page={page}
+            currentPage={page}
             setPage={e => handlePagination(e)}
             total={total} 
             pageNeighbours={2}

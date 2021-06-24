@@ -5,7 +5,7 @@ import { Container, NumberPage, AllPrevious, Previous, AllNext, Next } from './s
 interface paginateProps {
     total: number;
     limit: number;
-    page: number;
+    currentPage: number;
     pageNeighbours?: number;
     setPage: (e: number) => void;
 }
@@ -16,17 +16,15 @@ interface listProps {
     pageNeighbours?: number;
 }
 
-
-const Paginate: React.FC<paginateProps> = ({total, limit, pageNeighbours, page, setPage}) => {
+const Paginate: React.FC<paginateProps> = ({total, limit, pageNeighbours, currentPage, setPage}) => {
     
     const [ pages, setTotalPages ] = useState(0)
-
 
     useEffect(() => {
        
         getPageList({total, limit, pageNeighbours})
         
-    }, [total, limit, pageNeighbours, page]);
+    }, [total, limit, pageNeighbours]);
     
     const getPageList = ({total, limit, pageNeighbours}: listProps) => {
         limit = typeof limit === 'number' ? limit : 30;
@@ -42,14 +40,21 @@ const Paginate: React.FC<paginateProps> = ({total, limit, pageNeighbours, page, 
     const renderPages = () => {
 
         let items = []
-        let leftSide = page -2;
-        if(leftSide <= 0) leftSide=1;
+        let leftSide = currentPage -2;
+        if(leftSide <= 0) leftSide=0;
 
-        let rightSide = page + 2;
-        if(rightSide>total) rightSide = total;
-
+        let rightSide = currentPage + 2;
+        if(rightSide > pages -1) rightSide = pages -1;
+        
         for(let number = leftSide; number <= rightSide; number++) {
-            items.push(<NumberPage active={number === page}>{number}</NumberPage>)
+            items.push(
+                <NumberPage 
+                    onClick={() => setPage(number)} 
+                    active={number === currentPage}
+                >
+                    {number + 1}
+                </NumberPage>
+            )
         }
 
         return items
@@ -59,20 +64,18 @@ const Paginate: React.FC<paginateProps> = ({total, limit, pageNeighbours, page, 
   return (
         <Container>
             
-            <div style={{visibility: page > 0 ? 'visible' : 'hidden' }}>
+            <div style={{visibility: currentPage > 0 ? 'visible' : 'hidden' }}>
                 <AllPrevious onClick={() => setPage(0)} />
-                <Previous onClick={() => setPage(page - 1)} />
+                <Previous onClick={() => setPage(currentPage - 1)} />
             </div>
-            
             
             {renderPages()}
 
-            {page + 1 < pages && (
-                <>
-                    <Next onClick={() => setPage(page + 1)} />
-                    <AllNext onClick={() => setPage(total)}/>
-                </>
-            )}
+            <div style={{visibility: currentPage + 1 < pages -1 ? 'visible' : 'hidden' }}>
+                <Next onClick={() => setPage(currentPage + 1)} />
+                <AllNext onClick={() => setPage(pages - 1)}/>
+            </div>
+            
         </Container>
     );
 }

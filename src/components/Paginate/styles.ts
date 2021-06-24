@@ -43,15 +43,22 @@ interface numberPageProps {
 export const NumberPage = styled.button<numberPageProps>`
     width: 40px;
     height: 32px;
+    cursor: pointer;
 
     background: #F5F5F5;
-    border: 1px solid #E5E5E5;
+    border: 1px solid transparent;
+    border-radius: 4px;
 
     margin-right: 16px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:hover {
+        background-color: #5DAFFF;
+        color: #FFF;
+    }
 
     ${props => props.active && css`
         background: #167ABC;

@@ -19,9 +19,14 @@ export const Content = styled.div`
   height: 100%;
 
   .user {
+    color: #555555;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    
+
     .name {
       font-weight: bold;
-      color: #555555;
       font-size: 14px;
     }
 
@@ -29,6 +34,36 @@ export const Content = styled.div`
       font-size: 14px;
       font-weight: 400;
     }
+
+    .sigla {
+      cursor: default;
+
+      width: 32px;
+      height: 32px;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-left: 16px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+
+      font-weight: bold;
+      color: #555555;
+
+      &:hover {
+        background-color: #555555;
+        color: #f5f5f5;
+      }
+    }
+
+    @media(max-width: 500px) {
+      span {
+        display: block;
+      }
+    }
+
   }
 
   @media (max-width: 500px) {

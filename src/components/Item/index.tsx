@@ -34,10 +34,10 @@ const Item: React.FC<heroProps> = ({thumbnail, name, series, events, onClick}) =
               <span>{name}</span>
           </div>
           <div className="info info-series">
-              <p>{series.items.slice(0,2).map(item => item.name).join('\n')}</p>
+              <p>{series.items.slice(0,2).map(item => item.name).join('\n') || '-'}</p>
           </div>
           <div className="info info-eventos">
-              <p>{events.items.slice(0,3).map(item => item.name).join('\n')}</p>
+              <p>{events.items.slice(0,3).map(item => item.name).join('\n') || '-'}</p>
           </div>
       </Container>
   );
