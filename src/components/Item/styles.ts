@@ -40,6 +40,8 @@ export const Container = styled.div`
             margin-right: 24px;
             width: 48px;
             height: 48px;
+
+            border-radius: 4px;
         }
     }
 

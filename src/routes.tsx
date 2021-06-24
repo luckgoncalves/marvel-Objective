@@ -4,11 +4,16 @@ import Header from './components/Header';
 
 import Home from './pages/Home';
 import Details from './pages/Details'
+import { UserProvider } from './contexts/UserContext';
+
 
 function Routes () {
+    
     return (
         <BrowserRouter>
-            <Header />
+            <UserProvider user={{name: '', decription: ''}}>
+                <Header />
+            </UserProvider>
 
             <Switch>
                 <Route path="/" exact component={Home} />

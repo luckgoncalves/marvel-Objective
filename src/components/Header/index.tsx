@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../contexts/UserContext';
+
 import logoObjective from '../../assets/logo.svg'
 
 import { Container, Content } from './styles';
 
-const Header: React.FC = () => {
+function Header() {
 
-  const username = 'Lucas Gonçalves';
-  const initial = username.split(' ');
+  const { user } = useContext(UserContext)
+ 
+  const initial = user.name.split(' ') || [];
   
   let initials:any = [];
   
@@ -23,7 +26,7 @@ const Header: React.FC = () => {
             </div>
             <div className="user">
                 <div>
-                  <span className="name"> {username}</span>
+                  <span className="name"> {user.name}</span>
                   <span className="description"> Teste de Front-end</span>
                 </div>
 
