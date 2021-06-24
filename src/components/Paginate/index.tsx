@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+
+import { PaginateContext } from '../../contexts/PaginateContext';
 
 import { Container, NumberPage, AllPrevious, Previous, AllNext, Next } from './styles';
 
 interface paginateProps {
-    total: number;
-    limit: number;
-    currentPage: number;
+    
     pageNeighbours?: number;
     setPage: (e: number) => void;
 }
@@ -16,8 +16,9 @@ interface listProps {
     pageNeighbours?: number;
 }
 
-const Paginate: React.FC<paginateProps> = ({total, limit, pageNeighbours, currentPage, setPage}) => {
+const Paginate: React.FC<paginateProps> = ({pageNeighbours, setPage}) => {
     
+    const { currentPage, total, limit } = useContext(PaginateContext)
     const [ pages, setTotalPages ] = useState(0)
 
     useEffect(() => {

@@ -134,7 +134,7 @@ export const Comic = styled.div`
     }
 
     .description {
-        height: 150px;
+        height: 210px;
     }
 
 `;

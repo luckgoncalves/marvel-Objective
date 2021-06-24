@@ -1,34 +1,45 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import React, { useEffect, useState, useCallback, useRef, useContext } from 'react';
+import { useHistory } from 'react-router';
 
 import Content from '../../components/Content';
 import Item from '../../components/Item';
 import Search from '../../components/Search';
+import Paginate from '../../components/Paginate';
+
+import { PaginateContext } from '../../contexts/PaginateContext';
+
+import { api_marvel } from '../../services/api';
 
 import { Body, ListHeader } from './styles';
-import { api_marvel } from '../../services/api';
-import Paginate from '../../components/Paginate';
-import { useHistory } from 'react-router';
+
 
 interface personagemsProps {
-    name?: string;
+    name: string;
     offset: number;
 }
 
 const Home: React.FC = () => {
     const history = useHistory();
+
+    const {
+        handleLimit,
+        handleTotal,
+        handleCurrentPage, 
+        currentPage } = useContext(PaginateContext)
     
     const intervalRef = useRef<any>();
+    const searchRef  = useRef();
+        
+
     const [ personagems, setPersonagems ] = useState([])
-
-    const [ total, setTotal ] = useState(0);
-    const [ limit, setLimit ] = useState(0);
-    const [ page, setPage ]   = useState(0);
-
-    useEffect(() => {
-        fetchPersonagems({offset: 0})
-    }, [])
     
-    const fetchPersonagems = ({name, offset}: personagemsProps) => {
+    useEffect(() => {
+        fetchPersonagems({name: '', offset: 0})
+
+    },[]) //eslint-disable-line
+    
+   
+    const fetchPersonagems = useCallback(({name, offset}: personagemsProps) => {
         let query = ['orderBy=name', 'limit=10']
         
         name && query.push(`nameStartsWith=${name}`)
@@ -38,26 +49,32 @@ const Home: React.FC = () => {
         .then(response => {
             if(response) {
                 setPersonagems(response?.data.data.results)
-                setTotal(response?.data.data.total)
-                setLimit(response?.data.data.limit)
+                handleTotal(response?.data.data.total)
+                handleLimit(response?.data.data.limit)
             }
         })
         .catch(console.log)
-    }
+    },[handleTotal, handleLimit])
 
     const searchPersonagems = useCallback((evt) => {
         
         clearTimeout(intervalRef.current)
 
-        intervalRef.current = setTimeout(() => { fetchPersonagems({name: evt, offset: page * 10})}, 500)
+        searchRef.current = evt;
+        let search = evt ? {name: evt, offset: 0} : {name: evt, offset: currentPage * 10}
+        
+        intervalRef.current = setTimeout(() => { fetchPersonagems(search)}, 500)
 
-    }, [page])
+    }, [currentPage, fetchPersonagems]) 
 
     const handlePagination = (page: number) => {
-        setPage(page)
+        
+        handleCurrentPage(page)
 
-        let offset = page * 10
-        fetchPersonagems({offset: offset})
+        let name = searchRef.current || ''
+        
+        let search = {name: name, offset: page * 10}
+        fetchPersonagems(search)
     }
 
     const navigatePersonsagem = (hero: any) => {
@@ -101,11 +118,9 @@ const Home: React.FC = () => {
         </Body>
 
         <Paginate 
-            currentPage={page}
             setPage={e => handlePagination(e)}
-            total={total} 
             pageNeighbours={2}
-            limit={limit} />
+        />
       </>
   );
 }
