@@ -1,5 +1,5 @@
 # Objective - Code-Hero - Front-end 
-- Consome API da marvel https://developer.marvel.com/ listando os personagems, com opção de paginação e busca pelo nome do personagem;
+- Consome API da marvel https://developer.marvel.com/ listando os personagens, com opção de paginação e busca pelo nome do personagem;
 - Ao clicar no personagem é possível ver detalhes do mesmo e os quadrinhos em que ele te participação.
 
 ## Arquitetura
